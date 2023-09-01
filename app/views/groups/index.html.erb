@@ -1,1 +1,36 @@
-<div class="title">Penny Wise Welcome page</div>
+<div class="top-container">
+  <header>
+    <%= link_to image_tag('rowback.svg', class: 'btn-back'), :root, class: 'back' %>
+    <h2>Categories</h2>
+  </header>
+
+  <main class='devise'>
+    <% if @groups.blank? %>
+      <h3>Please add category to start</h3>
+    <% else %>
+      <div class="items-container">
+        <% @groups.each do |group| %>
+          <% expenses_group = group.expenses %>
+            <div class="group-item">
+              <%= image_tag "icons/#{group.icon}", alt: "category icon #{group.name}", class: 'img-icon' %>
+              <%= button_to user_group_expenses_path(current_user, group), method: :get, class: 'btn-group' do %>
+                <p class='group-name'><%= group.name %></p>
+              <% end %>
+              <% if expenses_group.any? %>
+                <p><%= expenses_group.sum(:amount) %></p>
+              <% else %>
+                <p>0.00</p>
+              <% end %>        
+              <%= link_to "Delete", user_group_path(current_user, group), data: { turbo_method: :delete }, confirm: 'Are ypu sure?', class: 'lnk-delete' %>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+  </main>
+
+</div>
+
+
+<footer>
+  <%= button_to 'Add new category', new_user_group_path, method: :get, class: 'f-button btn' %>
+</footer>
