@@ -9,6 +9,11 @@
       <h3>Please add category to start</h3>
     <% else %>
       <div class="items-container">
+        <%- if @total_expense.blank? %>
+          <h3>Total cost: <%= number_to_currency(0.00, precision: 2) %></h3>
+        <% else %>
+          <h3>Total cost: <%= number_to_currency(@total_expense, precision: 2) %></h3>
+        <% end %>
         <% @groups.each do |group| %>
           <% expenses_group = group.expenses %>
             <div class="group-item">
@@ -17,7 +22,7 @@
                 <p class='group-name'><%= group.name %></p>
               <% end %>
               <% if expenses_group.any? %>
-                <p><%= expenses_group.sum(:amount) %></p>
+                <p><%= number_to_currency(expenses_group.sum(:amount), precision: 2) %></p>
               <% else %>
                 <p>0.00</p>
               <% end %>        

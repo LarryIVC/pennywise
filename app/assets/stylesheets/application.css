@@ -17,10 +17,10 @@
   --pricipal: #3778c2;
   --secondary: #5fb523;
   --gray-primary: #434b54;
-  --gray-secondary: #545C67;
-  --gray-tertiary: #86898E;
-  --gray-quaternary: #989DA3;
-  --bg-color: #F0F2F1;
+  --gray-secondary: #545c67;
+  --gray-tertiary: #86898e;
+  --gray-quaternary: #989da3;
+  --bg-color: #f0f2f1;
   --fn-color: #ffe;
   --alert: #bb5757;
 }
@@ -41,6 +41,7 @@ body {
   max-width: 768px;
   font-size: 16px;
   margin: 0 auto;
+
   /* border: 1px solid var(--pricipal); */
   background-color: var(--bg-color);
 }
@@ -147,8 +148,8 @@ h3 {
   font-size: 1rem;
   font-weight: 400;
   color: var(--gray-primary);
-  /* padding-left: 10px; */
 
+  /* padding-left: 10px; */
 }
 
 button,
@@ -182,7 +183,6 @@ li {
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
   text-align: center;
   padding: 10px;
   transition: background-color 0.3s ease-in-out;
@@ -213,7 +213,9 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
   /* padding: 5px; */
+
   /* gap: 10px; */
   margin-top: 20px;
 }
@@ -257,6 +259,7 @@ li {
   font-weight: 300;
   background-color: #fff;
   color: var(--gray-quaternary);
+
   /* border-bottom: 1px solid var(--gray-quaternary); */
 }
 
@@ -337,6 +340,7 @@ li {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+
   /* border: 2px solid var(--pricipal); */
   border-radius: 4px;
   padding: 10px;
@@ -346,7 +350,7 @@ li {
 }
 
 .group-name {
-  font-size: 1  rem;
+  font-size: 1rem;
   color: var(--gray-primary);
   text-align: start;
 }
@@ -370,7 +374,6 @@ li {
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
   text-align: center;
   padding: 5px;
   border-radius: 4px;
@@ -402,7 +405,6 @@ li {
   font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
   text-align: center;
   padding: 10px 20px;
   border-radius: 4px;
@@ -411,4 +413,11 @@ li {
 
 .lnk-enter:hover {
   background-color: var(--secondary);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gray-primary);
+  padding: 10px;
 }

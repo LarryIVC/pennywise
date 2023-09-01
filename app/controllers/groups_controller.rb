@@ -4,6 +4,8 @@ class GroupsController < ApplicationController
   def index
     @user = current_user
     @groups = Group.where(user: @user)
+    @expenses = Expense.where(author: @user)
+    @total_expense = @expenses.sum(:amount)
   end
 
   def new
