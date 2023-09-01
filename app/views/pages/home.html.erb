@@ -1,0 +1,23 @@
+<header >  
+  <h1>Pennywise</h1>
+  <p class='message'>An app about your spents</p>
+</header>
+
+<main class='main-home'>
+<% if user_signed_in? %>
+  <p class='user-name'>Welcome <%= current_user.name %></p>
+  <%= link_to 'Enter', user_groups_path(current_user), class: 'lnk-enter' %>
+<% end %>
+  <img src="<%= asset_path('pennywise.png') %>" alt="logo pennywise" class="logo">
+</main>
+<footer>
+  <% if user_signed_in? %>
+      <div class="logout">
+          
+          <%= button_to('Logout', destroy_user_session_path, method: :delete, class: 'f-button btn') %>
+      </div>
+    <% else %>
+      <%= link_to('Log in', new_user_session_path, class: 'f-button') %>
+      <%= link_to('Sign up', new_user_registration_path, class: 'f-button') %>
+  <% end %>
+</footer>

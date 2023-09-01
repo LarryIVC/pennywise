@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+credits to <a href="https://www.flaticon.es/iconos-gratis" title="iconos">iconos creados por asol_studio - Flaticon</a>

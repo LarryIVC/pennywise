@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       user.permit(:name, :email, :password, :current_password)
     end
   end
+
+  def after_sign_in_path_for(_resource)
+    user_groups_path(current_user)
+  end
 end
