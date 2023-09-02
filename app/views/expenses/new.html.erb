@@ -1,0 +1,45 @@
+<div class="top-container">
+  <header>
+  <%= link_to image_tag('rowback.svg', class: 'btn-back'), :back, class: 'back' %>
+  <h2>New Transaction</h2>
+  </header>
+
+  <main class="devise">
+    <h3 class='title'>New transaction for <%= @group.name %> category</h3>    
+    <%= form_with model: @expense, url: user_group_expenses_path(@user, @group) do |f| %>
+      <%- if @expense.errors.any? %>
+        <div class="alert">
+          Something went wrong
+        </div>
+      <% end %>
+      <div class="fields">
+        <div class="field">        
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Transaction name' %>
+          <%- if @expense.errors[:name].any? %>
+            <div class="alert">
+              <%= @expense.errors[:name].first %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.number_field :amount, autocomplete: "amount", placeholder: 'Transaction amount', step: '0.01' %>
+          <%- if @expense.errors[:amount].any? %>
+            <div class='alert' >
+              <%= @expense.errors[:amount].first %>
+            </div>
+          <% end %>
+        </div>
+        <footer class="onbody">
+          <div class="actions">
+            <%= f.submit "Save transaction", class: "f-button btn" %>
+          </div>
+        </footer>
+      </div>      
+    <% end %>
+  </main>
+
+</div>
+<footer>
+  <%= @user.name %>
+</footer>

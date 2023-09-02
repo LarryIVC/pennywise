@@ -1,0 +1,41 @@
+<div class="top-container">
+  <header>
+    <%= link_to image_tag('rowback.svg', class: 'btn-back'), :root, class: 'back' %>
+    <h2>Categories</h2>
+  </header>
+
+  <main class='devise'>
+    <% if @groups.blank? %>
+      <h3>Please add category to start</h3>
+    <% else %>
+      <div class="items-container">
+        <%- if @total_expense.blank? %>
+          <h3>Total cost: <%= number_to_currency(0.00, precision: 2) %></h3>
+        <% else %>
+          <h3>Total cost: <%= number_to_currency(@total_expense, precision: 2) %></h3>
+        <% end %>
+        <% @groups.each do |group| %>
+          <% expenses_group = group.expenses %>
+            <div class="group-item">
+              <%= image_tag "icons/#{group.icon}", alt: "category icon #{group.name}", class: 'img-icon' %>
+              <%= button_to user_group_expenses_path(current_user, group), method: :get, class: 'btn-group' do %>
+                <p class='group-name'><%= group.name %></p>
+              <% end %>
+              <% if expenses_group.any? %>
+                <p><%= number_to_currency(expenses_group.sum(:amount), precision: 2) %></p>
+              <% else %>
+                <p>0.00</p>
+              <% end %>        
+              <%= link_to "Delete", user_group_path(current_user, group), data: { turbo_method: :delete }, confirm: 'Are ypu sure?', class: 'lnk-delete' %>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+  </main>
+
+</div>
+
+
+<footer>
+  <%= button_to 'Add new category', new_user_group_path, method: :get, class: 'f-button btn' %>
+</footer>

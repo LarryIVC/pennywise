@@ -1,0 +1,50 @@
+<div class="top-container">
+  <header>
+    <%= link_to image_tag('rowback.svg', class: 'btn-back'), :root, class: 'back' %>
+    <h2>Sign up</h2>
+  </header>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <main class='devise'>
+      <div class="fields">
+        <div class="field">
+          <%# <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Full Name' %>
+        </div>
+
+        <div class="field">
+          <%# <%= f.label :email %>
+          <%= f.email_field :email, autocomplete: "email", placeholder: 'Email' %>
+        </div>
+
+        <div class="field">
+          <%# <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password' %>
+        </div>
+
+        <div class="field">
+          <%# = f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password' %>
+        </div>
+
+        <div class="chbx">
+          <%= f.label :role %>
+          <%= f.radio_button :role, 'member', checked: true %> Member
+          <%= f.radio_button :role, 'admin'%> Admin
+        </div>
+      </div>
+      <footer  class='onbody'>
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'f-button btn' %>
+        </div>
+      </footer>
+    </main>
+  <% end %>
+</div>
+<footer>
+  <%= render "devise/shared/links" %>
+</footer>

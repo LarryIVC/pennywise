@@ -1,0 +1,46 @@
+<div class="top-container">
+  <header>
+    <%= link_to image_tag('rowback.svg', class: 'btn-back'), user_groups_path(current_user), class: 'back' %>
+    <h2>Categories</h2>
+  </header>
+
+  <main class='devise'>
+    <%= form_with model: @group, url: user_groups_path(@user) do |f| %>
+    <%- if @group.errors.any? %>
+      <div class="alert">
+        Something went wrong
+      </div>
+    <% end %>
+      <div class="fields">
+        <div class="field">        
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'Category name' %>
+          <%- if @group.errors[:name].any? %>
+            <div class="alert">
+              <%= @group.errors[:name].first %>
+            </div>
+          <% end %>
+        </div>
+      <h3>Select icon:</h3>
+      <div class="icons">
+        <% @image_names.each do |image_name| %>
+          <div class="icon-item">
+            <%= f.radio_button :icon, image_name.split('/').last, id: image_name %>
+            <%= f.label image_name.split('/').last, image_tag("icons/#{image_name.split('/').last}", class: 'img-icon') %>
+          </div>
+        <% end %>
+        <% if @group.errors[:icon].any? %>
+          <div class="alert">
+            <%= @group.errors[:icon].first %>
+          </div>
+        <% end %>
+      </div>
+      </div>
+      <footer>
+        <%= f.submit "Save category", class: 'f-button btn' %>
+      </footer>
+    <% end %>
+  </main>
+</div>
+<footer>
+  <%= @user.name %>
+</footer>
