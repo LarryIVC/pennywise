@@ -33,6 +33,19 @@
 
 **Pennywise** Take charge of your personal finances with our intuitive expense management application. Track your spending, set budgets, and gain valuable insights into your financial habits. Easily categorize expenses, view detailed reports, and stay on top of your financial goals. With our app, you'll have the tools you need to make informed financial decisions and achieve financial freedom. Start managing your expenses today and take control of your financial future!.
 
+![](mock-min.png)
+
+The video presenting the features of the project is here: 
+
+<div>
+  <a href="https://www.loom.com/share/b1762fa39b8b490ca0b1d19f8c667a4e">
+    <p>Capstone Project: Pennywise</p>
+  </a>
+  <a href="https://www.loom.com/share/b1762fa39b8b490ca0b1d19f8c667a4e">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/b1762fa39b8b490ca0b1d19f8c667a4e-with-play.gif">
+  </a>
+</div>
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
